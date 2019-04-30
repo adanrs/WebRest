@@ -9,7 +9,7 @@ import { UserService } from './user.service';
 })
 export class AppComponent {
 
-  paginas: any[] = [];
+  pages: any[] = [];
   constructor(
   protected userService: UserService
   ){}
@@ -19,8 +19,9 @@ export class AppComponent {
     this.userService.getPages()
     .subscribe(
       (data) => { // Success
-        this.pagina = data['results'];
+        this.pages = data['results'];
 		console.log(data);
+		
 		
       },
       (error) => {
