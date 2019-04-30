@@ -8,17 +8,20 @@ import { UserService } from './user.service';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'Examen';
-  users: any[] = [];
+
+  paginas: any[] = [];
   constructor(
   protected userService: UserService
   ){}
+  
+  //inicializa
   ngOnInit() {
-    this.userService.getUsers()
+    this.userService.getPages()
     .subscribe(
       (data) => { // Success
-        this.users = data['results'];
+        this.pagina = data['results'];
 		console.log(data);
+		
       },
       (error) => {
         console.error(error);
